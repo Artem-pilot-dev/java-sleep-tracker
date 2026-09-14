@@ -10,9 +10,9 @@ public class ChronotypeAnalyzer implements Function<List<SleepingSession>, Sleep
 
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sessions) {
-        Map<Chronotype, Long> counts = sessions.stream().filter(s -> !s.getStartSession().toLocalDate()
-                .equals(s.getFinishSession().toLocalDate())).map(this::getChronotypeForSession).collect(Collectors
-                .groupingBy(Function.identity(), Collectors.counting()));
+        Map<Chronotype, Long> counts = sessions.stream().filter(s -> !s.getStartSession()
+                .toLocalDate().equals(s.getFinishSession().toLocalDate())).map(this::getChronotypeForSession)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         long maxCount = counts.values().stream().max(Long::compare).orElse(0L);
         Chronotype userChronotype = Chronotype.GOLUB;
