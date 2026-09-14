@@ -16,8 +16,8 @@ public class SleepTrackerApp {
     public static void main(String[] args) {
 
         List<SleepingSession> sessions = readSessions(args[0]);
-        analyzers.stream().map(analyzer -> analyzer.apply(sessions)).
-                forEach(System.out::println);
+        analyzers.stream().map(analyzer -> analyzer.apply(sessions))
+                .forEach(System.out::println);
     }
 
     public static List<SleepingSession> readSessions(String path) {
