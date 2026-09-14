@@ -29,6 +29,7 @@ public class ChronotypeAnalyzer implements Function<List<SleepingSession>, Sleep
     }
 
     private Chronotype getChronotypeForSession(SleepingSession session) {
+
         LocalTime bedtime = session.getStartSession().toLocalTime();
         LocalTime wakeup = session.getFinishSession().toLocalTime();
         if (bedtime.isAfter(LocalTime.of(23, 0)) && wakeup.isAfter(LocalTime.of(9, 0))) {

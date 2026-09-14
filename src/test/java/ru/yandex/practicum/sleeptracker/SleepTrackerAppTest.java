@@ -1,8 +1,10 @@
 package ru.yandex.practicum.sleeptracker;
 
 import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SleepTrackerAppTest {
@@ -129,6 +131,7 @@ public class SleepTrackerAppTest {
         SleepAnalysisResult result = analyzer.apply(oneNightInTwoMonths);
         assertEquals(31L, result.getValue());
     }
+
     @Test
     void checkChronotypeAnalyzerWithOwlPreference() {
         List<SleepingSession> owlSessions = List.of(

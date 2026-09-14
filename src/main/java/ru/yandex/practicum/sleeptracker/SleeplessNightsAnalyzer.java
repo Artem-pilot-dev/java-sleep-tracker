@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.function.Function;
+
 import static java.time.LocalTime.NOON;
 
 public class SleeplessNightsAnalyzer implements Function<List<SleepingSession>, SleepAnalysisResult> {
@@ -26,7 +27,7 @@ public class SleeplessNightsAnalyzer implements Function<List<SleepingSession>, 
         if (lastFinish.toLocalTime().isAfter(NOON)) {
             lastDate = lastDate.minusDays(1);
         }
-         long totalNights = firstDate.datesUntil(lastDate.plusDays(1)).count();
+        long totalNights = firstDate.datesUntil(lastDate.plusDays(1)).count();
 
         long sleepNights = sessions.stream().filter(session -> (session.getStartSession().toLocalDate().
                 isBefore(session.getFinishSession().toLocalDate())) || (session.getStartSession().toLocalTime()
