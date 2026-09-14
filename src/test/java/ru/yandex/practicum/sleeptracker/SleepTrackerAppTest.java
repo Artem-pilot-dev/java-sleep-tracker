@@ -124,9 +124,9 @@ public class SleepTrackerAppTest {
 
     @Test
     void checkSleeplessNightsAnalyzerWhenUserSleptInDifferentMonths() {
-        List<SleepingSession> oneNightInTwoMonths = List.of(SleepingSession.
-                fromString("01.10.25 23:00;02.10.25 06:00;GOOD"), SleepingSession.
-                fromString("02.11.25 23:00;03.11.25 06:00;GOOD"));
+        List<SleepingSession> oneNightInTwoMonths = List.of(SleepingSession
+                .fromString("01.10.25 23:00;02.10.25 06:00;GOOD"), SleepingSession
+                .fromString("02.11.25 23:00;03.11.25 06:00;GOOD"));
         SleeplessNightsAnalyzer analyzer = new SleeplessNightsAnalyzer();
         SleepAnalysisResult result = analyzer.apply(oneNightInTwoMonths);
         assertEquals(31L, result.getValue());
