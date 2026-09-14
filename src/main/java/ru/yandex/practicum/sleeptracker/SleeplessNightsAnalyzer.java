@@ -29,10 +29,10 @@ public class SleeplessNightsAnalyzer implements Function<List<SleepingSession>, 
         }
         long totalNights = firstDate.datesUntil(lastDate.plusDays(1)).count();
 
-        long sleepNights = sessions.stream().filter(session -> (session.getStartSession().toLocalDate().
-                isBefore(session.getFinishSession().toLocalDate())) || (session.getStartSession().toLocalTime()
-                .isBefore(LocalTime.of(6, 0)) &&
-                session.getFinishSession().toLocalTime().isBefore(LocalTime.of(6, 0)))).count();
+        long sleepNights = sessions.stream().filter(session -> (session.getStartSession().toLocalDate()
+                .isBefore(session.getFinishSession().toLocalDate())) || (session.getStartSession().toLocalTime()
+                .isBefore(LocalTime.of(6, 0))
+                && session.getFinishSession().toLocalTime().isBefore(LocalTime.of(6, 0)))).count();
         long sleeplessNights = totalNights - sleepNights;
 
         return new SleepAnalysisResult("Количество бессонных ночей", sleeplessNights);
